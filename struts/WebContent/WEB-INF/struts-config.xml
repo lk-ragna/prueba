@@ -11,7 +11,7 @@
     </form-beans>
 
 	<global-forwards>
-        <forward name="helloWorld" path="/helloWorld"/>
+        <forward name="helloWorld" path="/helloWorld.do"/>
     </global-forwards>
     
     <action-mappings>
