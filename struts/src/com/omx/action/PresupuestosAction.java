@@ -11,12 +11,12 @@ import org.apache.struts.action.ActionMapping;
 
 import com.omx.form.HelloWorldForm;
 
-public class HelloWorldAction extends Action {
+public class PresupuestosAction extends Action {
 
 @Override
-public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-    HelloWorldForm hwForm = (HelloWorldForm) form;
-    hwForm.setMessage("Hello World");
-    return mapping.findForward("success");
+public ActionForward execute(ActionMapping mapping, ActionForm form,
+							HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+    	return mapping.findForward("success");
     }
 }

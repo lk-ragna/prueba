@@ -11,14 +11,17 @@
     </form-beans>
 
 	<global-forwards>
-        <forward name="helloWorld" path="/helloWorld"/>
+        <forward name="helloWorld" path="/helloWorld.do"/>
+        <forward name="presupuestos" path="/presupuestos.do"/>
     </global-forwards>
-    
+
     <action-mappings>
         <action path="/helloWorld" type="com.omx.action.HelloWorldAction" name="helloWorldForm">
         	<forward name="success" path="/helloWorld.jsp" />
-        </action>    
+        </action>
+        <action path="/presupuestos" type="com.omx.action.PresupuestosAction" name="presupuestos">
+        	<forward name="success" path="/WEB-INF/pages/presupuestos.jsp" />
+        </action>        
     </action-mappings>
 
 </struts-config>
-
