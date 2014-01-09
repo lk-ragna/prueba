@@ -17,16 +17,7 @@ import com.omx.dao.impl.ConectionDao;
 import com.omx.form.HelloWorldForm;
 
 public class HelloWorldAction extends Action {
-<<<<<<< HEAD
 
-@Override
-public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-    HelloWorldForm hwForm = (HelloWorldForm) form;
-    hwForm.setMessage("Hello World");
-    return mapping.findForward("success");
-    }
-}
-=======
 	
 	private List<ReportBean> reporte;
 	private String atributo1;
@@ -77,9 +68,4 @@ public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServlet
 	public void setAtributo2(String atributo2) {
 		this.atributo2 = atributo2;
 	}
-	
-	
-	
-	
 }
->>>>>>> 6dc38fe33bec03f657fe36dedc6be116c4bb35aa
