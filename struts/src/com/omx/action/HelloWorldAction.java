@@ -14,6 +14,7 @@ import org.apache.struts.action.ActionMapping;
 
 import com.omx.beans.ReportBean;
 import com.omx.dao.impl.ConectionDao;
+import com.omx.dao.impl.ReportsDaoImpl;
 import com.omx.form.HelloWorldForm;
 
 public class HelloWorldAction extends Action {
@@ -39,8 +40,8 @@ public class HelloWorldAction extends Action {
 	    repo1.setTotal(36.36);
 	    reporte.add(repo1);
 	    
-	    ConectionDao c = new ConectionDao();
-	    c.pruebaConexion();
+	    ReportsDaoImpl rep = new ReportsDaoImpl();
+	    rep.findAllReports();
 	    
 	    return mapping.findForward("success");
     }
