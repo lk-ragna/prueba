@@ -6,6 +6,7 @@ public class ReportBean {
 	private Integer quantity;
 	private Double price;
 	private Double total;
+	private Integer membrerId;
 	public String getSku() {
 		return sku;
 	}
@@ -51,6 +52,12 @@ public class ReportBean {
 		builder.append(total);
 		builder.append("]");
 		return builder.toString();
+	}
+	public Integer getMembrerId() {
+		return membrerId;
+	}
+	public void setMembrerId(Integer membrerId) {
+		this.membrerId = membrerId;
 	}
 	
 	

@@ -4,26 +4,41 @@ import com.omx.beans.ReportBean;
 import com.omx.dao.ReportsDao;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReportsDaoImpl extends ConectionDao implements ReportsDao {
-	private static final String SELECT = "select u.USERS_ID, u.LOGONID, u.STATUS from userreg u";
+	private static final String SELECT = "select o.ORDERS_ID, o.MEMBER_ID, ce.UP_PARTNUMBER, ced.UP_NAME, oi.QUANTITY, "
+			+ "oi.price, oi.TOTALPRODUCT, a.FIRSTNAME, a.LASTNAME "
+			+ "from orders o "
+			+ "inner join orderitems oi ON o.ORDERS_ID = oi.ORDERS_ID "
+			+ "inner join catentry ce ON oi.CATENTRY_ID = ce.CATENTRY_ID "
+			+ "inner join catEntDesc ced ON ce.CATENTRY_ID = ced.CATENTRY_ID "
+			+ "inner join address a ON o.MEMBER_ID = a.MEMBER_ID ";
 
 	@Override
-	public ReportBean findAllReports(){
-		
+	public List<ReportBean> findAllReports(){
+		List<ReportBean> products = new ArrayList<ReportBean>();
 		try {
 			this.openConnection();
 			ResultSet rs = this.executeQuery(SELECT);
 			
 		    while (rs.next()) {
-		        System.out.println("USERS_ID: " + rs.getString("USERS_ID") + "<br />");
-		        System.out.println("LOGONID: " + rs.getString("LOGONID") + "<br />");
+		    	ReportBean product = new ReportBean();
+		    	product.setSku(rs.getString("UP_PARTNUMBER"));
+		    	product.setMembrerId(rs.getInt("MEMBER_ID"));
+		    	product.setDescription(rs.getString("UP_NAME"));
+		    	product.setQuantity(rs.getInt("QUANTITY"));
+		    	product.setPrice(rs.getDouble("PRICE"));
+		    	product.setTotal(rs.getDouble("TOTALPRODUCT"));
+		    	products.add(product);
+		    	
 		    }
 			this.closeConection();
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
-		return null;
+		return products;
 	}
 
 }
