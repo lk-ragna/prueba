@@ -1,7 +1,6 @@
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
-<%@ page import="com.omx.logic.Prueba" %>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -11,6 +10,7 @@
 	<script src="<%=request.getContextPath()%>/utils/js/jquery.js"></script>
 	<script src="<%=request.getContextPath()%>/utils/js/bootstrap.min.js"></script>
 	<script src="<%=request.getContextPath()%>/utils/js/bootstrap-datepicker.js"></script>
+	<script src="<%=request.getContextPath()%>/utils/js/bootstrap-paginator.min.js"></script>
 	<script type="text/javascript">
             // When the document is ready
             $(document).ready(function () {
@@ -84,8 +84,6 @@
 			<div style="clear: both"></div>
 
 			
-			<jsp:useBean id="prueba" class="com.omx.logic.Prueba" scope="request">
-			</jsp:useBean>
 			<div id="divPrueba"></div>
 		</div>
 
