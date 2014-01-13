@@ -35,6 +35,13 @@
             		});
             	
             }
+            
+            function downLoadReport(reportType){
+				var url = "<%=request.getContextPath()%>/mapeo.do";
+            	var param = "?reportTipe=" + reportType;
+            	window.open(url + param);
+            	
+            }
 	</script>
 </head>
 <body>
@@ -48,7 +55,6 @@
 	<div class="panel panel-success">
 		<div class="panel-heading">
 			<h1 style="text-align: center;"><fmt:message key="title_consumer_report"/></h1>
-			<html:link forward="presupuestos">Presupuestos</html:link>
 		</div>
 		<div class="panel-body">
 			<h3 style="text-align: center;"><fmt:message key="search_criteria"/></h3>
@@ -85,6 +91,15 @@
 
 			
 			<div id="divPrueba"></div>
+			
+			<div class="row">
+				<div class="col-md-2">
+					<button type="button" class="btn btn-default" onclick="downLoadReport(1);"><fmt:message key="product"/></button>
+				</div>
+				<div class="col-md-2">
+					<button type="button" class="btn btn-default" onclick="downLoadReport(1);"><fmt:message key="product"/></button>
+				</div>
+			</div>
 		</div>
 
 	</div>

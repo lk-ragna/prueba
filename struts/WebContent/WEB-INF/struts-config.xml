@@ -9,23 +9,45 @@
     <form-beans>
     	<form-bean name="helloWorldForm" type="com.omx.form.HelloWorldForm"/>
     	<form-bean name="reportForm" type="com.omx.form.ReportForm"/>
+    	<form-bean name="generalReportForm" type="com.omx.form.GeneralReportForm"/>
+    	<form-bean name="logIn" type="com.omx.form.LogInForm"/>
+    	<form-bean name="orgEntityForm" type="com.omx.form.OrgEntityForm"/>
     </form-beans>
 
 	<global-forwards>
         <forward name="helloWorld" path="/helloWorld.do"/>
         <forward name="presupuestos" path="/presupuestos.do"/>
         <forward name="userReport" path="/userReport.do"/>
+        <forward name="generalReport" path="/reports.do"/>
     </global-forwards>
     
     <action-mappings>
+    	<action path="/organization" type="com.omx.action.OrgEntityAction" name="orgEntityForm">
+        	<forward name="success" path="/organizations.jsp" />
+        </action>
+    	
+    	<action path="/logIn" type="com.omx.action.LogInAction" name="exportExcelAction">
+        	<forward name="success" path="/logIn.jsp" />
+        </action>
+    	
+    	<action path="/mapeo" type="com.omx.action.ExportExcelAction" name="exportExcelAction">
+        	<forward name="success" path="/helloWorld.jsp" />
+        </action>
+    
+        <action path="/generalReport" type="com.omx.action.ReportsAction" name="generalReportForm">
+        	<forward name="success" path="/reports.jsp" />
+        </action>
+        
         <action path="/helloWorld" type="com.omx.action.HelloWorldAction" name="helloWorldForm">
         	<forward name="success" path="/helloWorld.jsp" />
         </action>
+        
         <action path="/presupuestos" type="com.omx.action.PresupuestosAction" name="presupuestos">
         	<forward name="success" path="/WEB-INF/pages/presupuestos.jsp" />
         </action>        
         <action path="/userReport" type="com.omx.action.UserReportAction" name="reportForm">
         	<forward name="success" path="/snippets/userReport.jsp" />
+        	<forward name="RFC" path="/snippets/rfcReport.jsp" />
         </action>      
     </action-mappings>
     

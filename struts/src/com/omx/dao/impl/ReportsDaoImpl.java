@@ -34,9 +34,11 @@ public class ReportsDaoImpl extends ConectionDao implements ReportsDao {
 		    	products.add(product);
 		    	
 		    }
-			this.closeConection();
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+		} finally{
+			this.closeConection();
 		}
 		return products;
 	}
