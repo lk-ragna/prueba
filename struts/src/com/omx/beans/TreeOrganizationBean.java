@@ -4,12 +4,12 @@ import java.util.List;
 
 public class TreeOrganizationBean {
 	
-	private String organizationName;
+	private String organizationName; //logonID or Orgentity name
 	private Long organizationId;
 	private String type;
-	private Integer budget;
 	private List<TreeOrganizationBean> treeOrganizationBean;
-	
+	private List<BudgetBean> budget;
+	private List<BudgetAvailableBean> avalibleBudget;
 	
 	public String getOrganizationName() {
 		return organizationName;
@@ -36,11 +36,18 @@ public class TreeOrganizationBean {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Integer getBudget() {
+	public List<BudgetBean> getBudget() {
 		return budget;
 	}
-	public void setBudget(Integer budget) {
+	public void setBudget(List<BudgetBean> budget) {
 		this.budget = budget;
+	}
+	
+	public List<BudgetAvailableBean> getAvalibleBudget() {
+		return avalibleBudget;
+	}
+	public void setAvalibleBudget(List<BudgetAvailableBean> avalibleBudget) {
+		this.avalibleBudget = avalibleBudget;
 	}
 	@Override
 	public String toString() {
@@ -51,13 +58,16 @@ public class TreeOrganizationBean {
 		builder.append(organizationId);
 		builder.append(", type=");
 		builder.append(type);
-		builder.append(", budget=");
-		builder.append(budget);
 		builder.append(", treeOrganizationBean=");
 		builder.append(treeOrganizationBean);
+		builder.append(", budget=");
+		builder.append(budget);
+		builder.append(", avalibleBudget=");
+		builder.append(avalibleBudget);
 		builder.append("]");
 		return builder.toString();
 	}
+	
 	
 	
 

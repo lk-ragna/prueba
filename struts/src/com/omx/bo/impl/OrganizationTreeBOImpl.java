@@ -39,6 +39,8 @@ public class OrganizationTreeBOImpl implements OrganizationTreeBO{
 			return null;
 		
 		for(TreeOrganizationBean member : list){
+			member.setBudget(organizationTreeDao.getBudgetByMember(member.getOrganizationId(), 1));
+			member.setAvalibleBudget(organizationTreeDao.getAvailableBudget(memberId));
 			member.setTreeOrganizationBean(this.findOrganizationsAndUsers(member.getOrganizationId()));
 		}
 		return list;

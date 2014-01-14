@@ -3,9 +3,11 @@ package com.omx.dao.impl;
 
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -35,6 +37,34 @@ public class ConectionDao {
 			throw e;
 		}
 	    
+		
+	}
+	
+	protected ResultSet executeQuery(String sql, List<Object> params) throws Exception{
+		if(cn == null)
+			throw new Exception("Conection is null");
+		
+		
+		//st = cn.createStatement();
+		PreparedStatement ps = cn.prepareStatement(sql);
+		if(params != null){
+			int i = 1;
+			for(Object param : params){
+				if(param instanceof Integer){
+					ps.setInt(i, (Integer) param);
+				}else if(param instanceof Long){
+					ps.setLong(i, (Long) param);
+				}else if(param instanceof String){
+					ps.setString(i, (String) param);
+				}
+				i++;
+			}
+			
+		}
+				
+				
+	    rs = ps.executeQuery();
+	    return rs;
 		
 	}
 	
